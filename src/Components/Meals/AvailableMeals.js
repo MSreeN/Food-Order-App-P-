@@ -32,9 +32,10 @@ const AvailableMeals = () => {
     return <li>{val.name}</li>;
   });
   return (
-    <section className="classes.meals">
-    <Card>
-      <ul>{mealsList}</ul></Card>
+    <section className={classes.meals}>
+      <Card>
+        <ul>{mealsList}</ul>
+      </Card>
     </section>
   );
 };
