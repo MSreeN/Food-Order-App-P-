@@ -13,7 +13,7 @@ function Cart(props) {
   console.log(cartItems);
 
   return (
-    <Modal>
+    <Modal onClick = {props.onClose}>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
@@ -23,6 +23,7 @@ function Cart(props) {
         <Button
           button={{
             "className": classes["button--alt"],
+            onClick: props.onClose
           }}
         >
           Close

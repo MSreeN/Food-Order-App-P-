@@ -6,7 +6,8 @@ const HeaderCartButton = (props) => {
 
   return <Button button ={{
     "className" : classes.button ,
-     "type" : ""
+     "type" : "",
+     onClick: props.onClick
   }} >
     <span className={classes.icon}>
       <CartIcon/>
