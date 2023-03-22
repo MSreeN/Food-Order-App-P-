@@ -1,7 +1,12 @@
-import classes from './Button.module.css'
+import classes from "./Button.module.css";
 
-function Button(props){
-  return <button {...props.button}>{props.content}</button>
+function Button(props) {
+  return (
+    <button {...props.button}>
+      {props.children}
+      {props.content}
+    </button>
+  );
 }
 
 export default Button;
