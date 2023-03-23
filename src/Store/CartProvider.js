@@ -1,6 +1,9 @@
 import CartContext from "./cart-context"
 
 export default function CartProvider(props){
+
+  
+
   function addItemToCartHandler(item){}
 
   function removeItemFromCartHandler(id){}
