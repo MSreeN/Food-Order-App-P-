@@ -6,10 +6,10 @@ import classes from './HeaderCartButton.module.css'
 
 const HeaderCartButton = (props) => {
   ///using the cartContext
-  const cartContext = useContext(CartContext)
+  const cartContext = useContext(CartContext);
   const noOfCartItems = cartContext.items.reduce((acc, cVal) => {
     return acc + cVal.amount;
-  },0)
+  },0);
   return <Button button ={{
     "className" : classes.button ,
      "type" : "",

@@ -6,7 +6,7 @@ const defaultCartState = {
   totalAmount: 0,
 };
 const cartReducer = (state, action) => {
-  if(action.type === "ADD"){
+  if (action.type === "ADD") {
     // const updatedItems = state.items.concat();
     // const hasItem = updatedItems.find(item => {
     //   item.name === action.item.name;
@@ -18,13 +18,14 @@ const cartReducer = (state, action) => {
     //   hasItem.amount = hasItem.amount+1
     // }
 
-    const updatedItems = state.items.concat(action.items);
-    const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount
+    const updatedItems = state.items.concat(action.item);
+    const updatedTotalAmount =
+      state.totalAmount + action.item.price * action.item.amount;
     return {
       items: updatedItems,
-      totalAmount: updatedTotalAmount
-    }
-  } 
+      totalAmount: updatedTotalAmount,
+    };
+  }
 };
 
 export default function CartProvider(props) {
@@ -38,9 +39,10 @@ export default function CartProvider(props) {
   }
 
   function removeItemFromCartHandler(id) {}
+  console.log(cartState.items);
   const cartContext = {
     items: cartState.items,
-    totalAmount: cartState.totalAmount,
+    amount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
   };
