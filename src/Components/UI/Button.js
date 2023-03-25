@@ -4,7 +4,7 @@ function Button(props) {
   return (
     <button {...props.button}>
       {props.children}
-      {props.content}
+      {props.button.content}
     </button>
   );
 }

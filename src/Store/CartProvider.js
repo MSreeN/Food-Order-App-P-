@@ -24,7 +24,7 @@ const cartReducer = (state, action) => {
       items: updatedItems,
       totalAmount: updatedTotalAmount
     }
-  }
+  } 
 };
 
 export default function CartProvider(props) {

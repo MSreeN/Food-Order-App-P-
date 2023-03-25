@@ -1,11 +1,19 @@
+import { useContext, useRef } from "react";
+import CartContext from "../../../Store/cart-context";
 import Button from "../../UI/Button";
 import Input from "../../UI/Input";
 import classes from "./MealItemForm.module.css";
 
 function MealItemForm(props) {
+  const cartContext = useContext(CartContext);
+  const amountRef = useRef();
+  function submitHandler(e){
+    e.preventDefault();
+    
+  }
   return (
-    <form className={classes.form}>
-      <Input
+    <form className={classes.form} onSubmit = {submitHandler}>
+      <Input ref = {amountRef}
         label="Amount"
         input={{
           id: "amount_"+props.id,
@@ -16,7 +24,9 @@ function MealItemForm(props) {
           defaultValue: '1',
         }}
       />
-      <Button content="+ Add" />
+      <Button button = {{
+        content: "+Add"
+      }} />
     </form>
   );
 }
