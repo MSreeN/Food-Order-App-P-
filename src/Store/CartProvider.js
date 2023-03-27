@@ -39,10 +39,10 @@ export default function CartProvider(props) {
   }
 
   function removeItemFromCartHandler(id) {}
-  console.log(cartState.items);
+  // console.log(cartState);
   const cartContext = {
     items: cartState.items,
-    amount: cartState.totalAmount,
+    totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
   };

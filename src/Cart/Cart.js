@@ -14,18 +14,19 @@ function Cart(props) {
       ))}
     </ul>
   );
-
-  const totalAmount = cartContext.items.reduce((acc, cVal) =>{
-    return Math.floor(acc) + cVal.price
-  },0)
-  console.log(cartItems);
+  
+  const hasItems = cartContext.items.length > 0;
+  const totalAmount = `$${cartContext.totalAmount.toFixed(2)}`;
+  console.log(cartContext.totalAmount);
+  // console.log(cartContext.totalAmount);
+  // console.log(cartItems);
 
   return (
     <Modal onClick = {props.onClose}>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
-        <span>{Math.floor(totalAmount)}</span>
+        <span>{totalAmount}</span>
       </div>
       <div className={classes.actions}>
         <Button
@@ -36,13 +37,13 @@ function Cart(props) {
         >
           Close
         </Button>
-        <Button
+        {hasItems && <Button
           button={{
             "className": classes.button,
           }}
         >
           Order
-        </Button>
+        </Button>}
         {/* <button className={classes['button--alt']}>Close</button>
         <button className={classes.button}>Order</button> */}
       </div>
