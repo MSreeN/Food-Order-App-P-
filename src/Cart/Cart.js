@@ -3,6 +3,7 @@ import Button from "../Components/UI/Button";
 import Modal from "../Components/UI/Modal";
 import CartContext from "../Store/cart-context";
 import classes from "./Cart.module.css";
+import CartItem from "./CartItem";
 
 function Cart(props) {
   const cartContext = useContext(CartContext);
@@ -10,19 +11,28 @@ function Cart(props) {
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartContext.items.map((cartItem) => (
-        <li>{cartItem.name}</li>
+        <CartItem
+          key={cartItem.id}
+          name={cartItem.name}
+          price={cartItem.price}
+          onAdd={cartItemAddHandler}
+          onRemove={cartItemRemoveHandler}
+          amount = {cartItem.amount}
+        />
       ))}
     </ul>
   );
-  
+
+  function cartItemAddHandler(item) {}
+  function cartItemRemoveHandler(id) {}
   const hasItems = cartContext.items.length > 0;
   const totalAmount = `$${cartContext.totalAmount.toFixed(2)}`;
-  console.log(cartContext.totalAmount);
+
   // console.log(cartContext.totalAmount);
   // console.log(cartItems);
 
   return (
-    <Modal onClick = {props.onClose}>
+    <Modal onClick={props.onClose}>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
@@ -31,19 +41,21 @@ function Cart(props) {
       <div className={classes.actions}>
         <Button
           button={{
-            "className": classes["button--alt"],
-            onClick: props.onClose
+            className: classes["button--alt"],
+            onClick: props.onClose,
           }}
         >
           Close
         </Button>
-        {hasItems && <Button
-          button={{
-            "className": classes.button,
-          }}
-        >
-          Order
-        </Button>}
+        {hasItems && (
+          <Button
+            button={{
+              className: classes.button,
+            }}
+          >
+            Order
+          </Button>
+        )}
         {/* <button className={classes['button--alt']}>Close</button>
         <button className={classes.button}>Order</button> */}
       </div>
