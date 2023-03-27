@@ -11,7 +11,7 @@ const HeaderCartButton = (props) => {
     return acc + cVal.amount;
   },0);
   return <Button button ={{
-    "className" : classes.button ,
+    "className" : classes.button,
      "type" : "",
      onClick: props.onClick
   }} >

@@ -7,7 +7,7 @@ import CartItem from "./CartItem";
 
 function Cart(props) {
   const cartContext = useContext(CartContext);
-  console.log(cartContext.items);
+  // console.log(cartContext.items);
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartContext.items.map((cartItem) => (
