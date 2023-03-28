@@ -15,15 +15,17 @@ function Cart(props) {
           key={cartItem.id}
           name={cartItem.name}
           price={cartItem.price}
-          onAdd={cartItemAddHandler}
-          onRemove={cartItemRemoveHandler}
+          onAdd={cartItemAddHandler.bind(null, cartItem)}
+          onRemove={cartItemRemoveHandler.bind(null, cartItem.id)}
           amount = {cartItem.amount}
         />
       ))}
     </ul>
   );
 
-  function cartItemAddHandler(item) {}
+  function cartItemAddHandler(item) {
+    cartContext.addItem({...item, "amount" : 1});
+  }
   function cartItemRemoveHandler(id) {}
   const hasItems = cartContext.items.length > 0;
   const totalAmount = `$${cartContext.totalAmount.toFixed(2)}`;
