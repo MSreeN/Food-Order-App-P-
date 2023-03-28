@@ -26,7 +26,9 @@ function Cart(props) {
   function cartItemAddHandler(item) {
     cartContext.addItem({...item, "amount" : 1});
   }
-  function cartItemRemoveHandler(id) {}
+  function cartItemRemoveHandler(id) {
+    cartContext.removeItem(id);
+  }
   const hasItems = cartContext.items.length > 0;
   const totalAmount = `$${cartContext.totalAmount.toFixed(2)}`;
 
